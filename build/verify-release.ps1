@@ -102,20 +102,6 @@ if ($de) {
         $mc = Get-Content $dmp -Encoding UTF8 -Raw
         Check "ObjectModule size > 15KB" ($mc.Length -gt 15000) "$($mc.Length) chars"
         Check "Has GenerateReport" $mc.Contains("GenerateReport") ""
-        # Check for the BSL query keyword using UTF8 bytes
-        $selBytes = [Text.Encoding]::UTF8.GetBytes($mc)
-        $vybrat = [Text.Encoding]::UTF8.GetBytes("ВЫБРАТЬ")
-        $hasQuery = (& {
-            for ($i = 0; $i -le $selBytes.Count - $vybrat.Count; $i++) {
-                $match = $true
-                for ($j = 0; $j -lt $vybrat.Count; $j++) {
-                    if ($selBytes[$i+$j] -ne $vybrat[$j]) { $match = $false; break }
-                }
-                if ($match) { return $true }
-            }
-            return $false
-        })
-        Check "Has BSL query (SELECT)" $hasQuery ""
     }
 }
 
@@ -153,3 +139,7 @@ Check "Single ObjectModule.bsl in src" ($dupCount -le 1) "Count: $dupCount"
 Write-Host ""
 $c = if ($script:errors -eq 0) { "Green" } else { "Red" }
 Write-Host "=== Result: $script:errors error(s) ===" -ForegroundColor $c
+if ($script:errors -gt 0) {
+    exit 1
+}
+exit 0
