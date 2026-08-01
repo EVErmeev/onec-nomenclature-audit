@@ -23,7 +23,7 @@
 			<DefaultForm>ExternalReport.KontrolAudit.Form.MainForm</DefaultForm>
 			<AuxiliaryForm/>
 			<MainDataCompositionSchema/>
-			<DefaultSettingsForm/>
+			<DefaultSettingsForm>ExternalReport.KontrolAudit.Form.MainForm</DefaultSettingsForm>
 			<AuxiliarySettingsForm/>
 			<DefaultVariantForm/>
 			<VariantsStorage/>
