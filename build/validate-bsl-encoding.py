@@ -11,6 +11,10 @@ MOJIBAKE_CHARS = {
 }
 MOJIBAKE_SIMPLE = ["\u2550", "\u2564", "\u0432\u0402", "\u252c"]
 
+FORBIDDEN_PATTERNS = [
+    "Новый ПолеТабличногоДокумента",
+]
+
 OBJMOD_TOKENS = [
     "\u041e\u0431\u043b\u0430\u0441\u0442\u044c \u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u044b\u0439\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441",
     "\u041a\u043e\u043d\u0435\u0446\u041e\u0431\u043b\u0430\u0441\u0442\u0438",
@@ -44,6 +48,10 @@ def validate_file(filepath, required_tokens, check_bom=False):
     for m in MOJIBAKE_SIMPLE:
         if m in text:
             errors.append(f"Mojibake: {repr(m)}")
+
+    for pattern in FORBIDDEN_PATTERNS:
+        if pattern in text:
+            errors.append(f"Forbidden pattern: {pattern}")
 
     for token in required_tokens:
         if token not in text:
