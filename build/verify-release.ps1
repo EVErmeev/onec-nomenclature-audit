@@ -100,7 +100,14 @@ if ($de) {
     Check "ObjectModule.bsl in dump" $me ""
     if ($me) {
         $mc = Get-Content $dmp -Encoding UTF8 -Raw
-        Check "ObjectModule size > 10KB" ($mc.Length -gt 10000) "$($mc.Length) chars"
+        Check "Has &ПустаяСтрока" $mc.Contains('&ПустаяСтрока') ""
+        Check "Has СоздатьЗапросДублейНаименований" $mc.Contains('СоздатьЗапросДублейНаименований') ""
+        Check "Has СоздатьЗапросДублейКодов" $mc.Contains('СоздатьЗапросДублейКодов') ""
+        Check "Has ВыполнитьЗапросДублей" $mc.Contains('ВыполнитьЗапросДублей') ""
+        Check "Has НайтиДублиПоЗначению" $mc.Contains('НайтиДублиПоЗначению') ""
+        $hasBroken = ($mc.Contains('<> ' + [char]34 + ' + ' + [char]34) -or $mc.Contains('<> "" + ""'))
+        Check "No broken <> "" + """"" (-not $hasBroken) ""
+        Check "No ЭтаФорма.Закрыть()" (-not $mc.Contains('ЭтаФорма.Закрыть()')) ""
     }
 }
 
