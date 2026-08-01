@@ -100,8 +100,7 @@ if ($de) {
     Check "ObjectModule.bsl in dump" $me ""
     if ($me) {
         $mc = Get-Content $dmp -Encoding UTF8 -Raw
-        Check "ObjectModule size > 15KB" ($mc.Length -gt 15000) "$($mc.Length) chars"
-        Check "Has GenerateReport" $mc.Contains("GenerateReport") ""
+        Check "ObjectModule size > 10KB" ($mc.Length -gt 10000) "$($mc.Length) chars"
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿{
   "internalName": "KontrolAudit",
-  "sha256": "090C43325E65060A6C7EC5CD99157AAAF09DDE09D7977CA21AF9696AAC38714B",
-  "sizeBytes": 12566,
+  "sha256": "6E2A3E4851F4199E78E57F78A952FD24C810403720F7BB826D10833D6AC6DF63",
+  "sizeBytes": 14341,
   "defaultForm": "ExternalReport.KontrolAudit.Form.MainForm"
 }
