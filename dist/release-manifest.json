@@ -1,0 +1,12 @@
+﻿{
+  "internalName": "KontrolAudit",
+  "synonym": "Контроль заполнения номенклатуры",
+  "version": "1.0.0",
+  "platform": "8.3.27.1559",
+  "configuration": "УправлениеТорговлей 11.5.22.129",
+  "sha256": "D5020CF3FD70E5C11337E9BDA5F7F2CA1662226A5E96D21C117E97F7FCA30510",
+  "sizeBytes": 13175,
+  "defaultForm": "ExternalReport.KontrolAudit.Form.MainForm",
+  "type": "ExternalReport",
+  "buildDate": "2026-08-01"
+}

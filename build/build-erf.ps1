@@ -28,11 +28,11 @@ Write-Host "=== External Report Build ===" -ForegroundColor Cyan
 
 # Check sources first
 Write-Host "[1] Checking sources..."
-$RootXml = Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры.xml"
+$RootXml = Join-Path $SrcDir "KontrolAudit.xml"
 if (-not (Test-Path $RootXml)) { Write-Host "ERROR: $RootXml not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Ext\ObjectModule.bsl"))) { Write-Host "ERROR: ObjectModule.bsl not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Forms\MainForm\Ext\Form.xml"))) { Write-Host "ERROR: Form.xml not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Forms\MainForm\Ext\Form\Module.bsl"))) { Write-Host "ERROR: Form module not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Ext\ObjectModule.bsl"))) { Write-Host "ERROR: ObjectModule.bsl not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Forms\MainForm\Ext\Form.xml"))) { Write-Host "ERROR: Form.xml not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Forms\MainForm\Ext\Form\Module.bsl"))) { Write-Host "ERROR: Form module not found" -ForegroundColor Red; exit 1 }
 Write-Host "  OK: all source files present"
 
 # Try Configurator first
