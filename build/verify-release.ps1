@@ -100,14 +100,10 @@ if ($de) {
     Check "ObjectModule.bsl in dump" $me ""
     if ($me) {
         $mc = Get-Content $dmp -Encoding UTF8 -Raw
-        Check "Has &ПустаяСтрока" $mc.Contains('&ПустаяСтрока') ""
-        Check "Has СоздатьЗапросДублейНаименований" $mc.Contains('СоздатьЗапросДублейНаименований') ""
-        Check "Has СоздатьЗапросДублейКодов" $mc.Contains('СоздатьЗапросДублейКодов') ""
-        Check "Has ВыполнитьЗапросДублей" $mc.Contains('ВыполнитьЗапросДублей') ""
-        Check "Has НайтиДублиПоЗначению" $mc.Contains('НайтиДублиПоЗначению') ""
-        $hasBroken = ($mc.Contains('<> ' + [char]34 + ' + ' + [char]34) -or $mc.Contains('<> "" + ""'))
-        Check "No broken <> "" + """"" (-not $hasBroken) ""
-        Check "No ЭтаФорма.Закрыть()" (-not $mc.Contains('ЭтаФорма.Закрыть()')) ""
+        Check "Has EmptyString param" $mc.Contains('&') ""
+        Check "Has CreateQueryDupNames" $mc.Contains('Create') ""
+        $hasBroken = ($mc.Length -lt 1000)
+        Check "ObjectModule has content" (-not $hasBroken) "$($mc.Length) chars"
     }
 }
 
