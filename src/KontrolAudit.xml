@@ -23,11 +23,6 @@
 			<DefaultForm>ExternalReport.KontrolAudit.Form.MainForm</DefaultForm>
 			<AuxiliaryForm />
 			<MainDataCompositionSchema />
-			<DefaultSettingsForm />
-			<AuxiliarySettingsForm />
-			<DefaultVariantForm />
-			<VariantsStorage />
-			<SettingsStorage />
 		</Properties>
 		<ChildObjects>
 			<Form>MainForm</Form>
