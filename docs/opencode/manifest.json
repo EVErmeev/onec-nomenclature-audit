@@ -9,6 +9,7 @@
     {"file": "04_Корректировка_DefaultForm_и_ObjectModule_ERF.md", "status": "DONE"},
     {"file": "05_Задание_OpenCode_создать_GitHub_репозиторий_1С_отчета.md", "status": "DONE"},
     {"file": "06_Корректировка_BSL_зарезервированная_переменная_И.md", "status": "DONE"},
-    {"file": "08_Корректировка_кодировки_BSL_и_fail_fast_release.md", "status": "IN_PROGRESS"}
+    {"file": "08_Корректировка_кодировки_BSL_и_fail_fast_release.md", "status": "DONE"},
+    {"file": "12_ТЗ_OpenCode_полная_стабилизация_функционала.md", "status": "READY_FOR_REVIEW"}
   ]
 }
