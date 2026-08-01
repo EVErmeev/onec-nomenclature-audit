@@ -1,7 +1,7 @@
 {
-  "currentCommit": "e28e134c71f0e420f27bcd4a91310a133e51fb38",
+  "currentCommit": "701ee33a8c05c311ae637ab504d41d2394394881",
   "activeTask": "08_Корректировка_кодировки_BSL_и_fail_fast_release.md",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "tasks": [
     {"file": "01_TZ_Контроль_заполнения_номенклатуры_v1.1.md", "status": "DONE"},
     {"file": "02_Аудит_невалидного_ERF_и_обязательные_исправления_v2.md", "status": "DONE"},
