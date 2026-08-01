@@ -1,0 +1,12 @@
+{
+  "v8path": "C:\\Program Files\\1cv8\\8.3.27.1559\\bin\\1cv8.exe",
+  "databases": [
+    {
+      "id": "ut_demo",
+      "alias": "UT Demo",
+      "path": "F:\\UT_Demo",
+      "branches": ["main"],
+      "default": true
+    }
+  ]
+}

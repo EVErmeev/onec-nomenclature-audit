@@ -1,0 +1,33 @@
+# 1C infobases
+*.1CD
+1Cv8Log/
+1Cv8tmp/
+*.cdn
+*.cfl
+*.pfl
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+.v8-project.json
+*credentials*
+*secrets*
+*.token
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+build/temp_test/
+dump_output/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Logs with local secrets
+logs/private/
