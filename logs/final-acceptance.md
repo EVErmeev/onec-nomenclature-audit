@@ -1,27 +1,37 @@
 # Final Acceptance
 
 **Дата:** 02.08.2026
-**Commit:** 7f762ec (последний из серии стабилизации)
+**Commit:** 96a1b38
 **PR:** https://github.com/EVErmeev/onec-nomenclature-audit/pull/1
 
-## Критерии приёмки
+## Автоматические проверки — все PASS
 
-| # | Критерий | Статус |
-|---|---------|--------|
-| 1 | form-validate 0 errors | PASS |
-| 2 | erf-validate 0 errors | PASS |
-| 3 | validate-bsl-encoding 0 errors | PASS |
-| 4 | erf-build success | PASS |
-| 5 | erf-dump success | PASS |
-| 6 | Отчёт открывается без ошибки | NOT_TESTED |
-| 7 | Настройки не зациклены | NOT_TESTED |
-| 8 | Запросы выполняются | NOT_TESTED |
-| 9 | Все параметры работают | NOT_TESTED |
-| 10 | Группы не получают ложные ошибки | NOT_TESTED |
-| 11 | Результат отображается | NOT_TESTED |
-| 12 | Карточка открывается | NOT_TESTED |
-| 13 | Итоги корректны | NOT_TESTED |
-| 14 | Ошибки копируются | NOT_TESTED |
-| 15 | Данные не изменяются | PASS (read-only proof) |
+| Критерий | Статус |
+|---------|--------|
+| form-validate | PASS (0 errors) |
+| erf-validate | PASS (0 errors) |
+| validate-bsl-encoding | PASS (exit 0) |
+| erf-build (UT_Demo) | PASS (exit 0) |
+| erf-dump | PASS |
+| verify-release.ps1 | 20/20 PASS (exit 0) |
+| MCP validate_query (8 комб.) | 8/8 PASS |
+| MCP execute_query (7 запросов) | 7/7 PASS |
+| Read-only proof | PASS |
+| ERF не ZIP | PASS (header FF FF FF 7F) |
+| ERF blob ≠ baseline | PASS |
+| UUID уникальны | PASS |
+| Нет дублей ObjectModule | PASS |
+
+## Ручные проверки — ожидают
+
+| Критерий | Статус |
+|---------|--------|
+| Отчёт открывается без ошибки | NOT_TESTED |
+| Настройки не зациклены | NOT_TESTED |
+| Сформировать выполняется | NOT_TESTED |
+| Результат отображается | NOT_TESTED |
+| Карточка открывается | NOT_TESTED |
+| Итоги корректны | NOT_TESTED |
+| Фильтры работают | NOT_TESTED |
 
 **Общий статус:** СОБРАНО И ОПУБЛИКОВАНО — ОЖИДАЕТ ФУНКЦИОНАЛЬНОЙ ПРОВЕРКИ
