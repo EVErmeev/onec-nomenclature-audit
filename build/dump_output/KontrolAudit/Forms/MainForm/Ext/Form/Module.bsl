@@ -1,26 +1,37 @@
-﻿&AtServer
-Procedure OnCreateAtServer(Cancel, StandardProcessing)
-	IncludeDeletionMark = False;
-	IncludeGroups = False;
-	OnlyWithProblems = True;
-	MaxRowCount = 1000;
-EndProcedure
+﻿&НаСервере
+Процедура ПриСозданииНаСервере(Отказ, СтандартнаяОбработка)
+	УчитыватьПомеченныеНаУдаление = Ложь;
+	УчитыватьГруппы = Ложь;
+	ТолькоСПроблемами = Истина;
+	МаксимумКарточек = 1000;
+	ТехническаяОшибка = "";
+	ПровереноКарточек = 0;
+	КарточекСПроблемами = 0;
+	НайденоПроблем = 0;
+	СтрокРезультата = 0;
+КонецПроцедуры
 
-&AtClient
-Procedure Generate(Command)
-	Settings = New Structure;
-	Settings.Insert("IncludeDeletionMark", IncludeDeletionMark);
-	Settings.Insert("IncludeGroups",       IncludeGroups);
-	Settings.Insert("OnlyWithProblems",    OnlyWithProblems);
-	Settings.Insert("MaxRowCount",         MaxRowCount);
-	GenerateOnServer(Settings);
-EndProcedure
+&НаКлиенте
+Процедура Сформировать(Команда)
+	СформироватьНаСервере();
+КонецПроцедуры
 
-&AtServer
-Procedure GenerateOnServer(Settings)
-	Cancel = False;
-	ReportObject = FormAttributeToValue("Object");
-	If ReportObject <> Undefined Then
-		ReportObject.GenerateReport(Result, Settings, Cancel);
-	EndIf;
-EndProcedure
+&НаСервере
+Процедура СформироватьНаСервере()
+	Настройки = Новый Структура;
+	Настройки.Вставить("УчитыватьПомеченныеНаУдаление", УчитыватьПомеченныеНаУдаление);
+	Настройки.Вставить("УчитыватьГруппы", УчитыватьГруппы);
+	Настройки.Вставить("ТолькоСПроблемами", ТолькоСПроблемами);
+	Настройки.Вставить("МаксимумКарточек", МаксимумКарточек);
+	
+	Отказ = Ложь;
+	ОтчетОбъект = РеквизитФормыВЗначение("Объект");
+	Если ОтчетОбъект <> Неопределено Тогда
+		ОтчетОбъект.СформироватьОтчет(Результат, Настройки, ТехническаяОшибка, ПровереноКарточек, КарточекСПроблемами, НайденоПроблем, СтрокРезультата, Отказ);
+		Если Отказ Тогда
+			ТехническаяОшибка = ТехническаяОшибка + Символы.ПС + "Статус: ОТКАЗ";
+		КонецЕсли;
+	Иначе
+		ТехническаяОшибка = "Объект отчёта не найден.";
+	КонецЕсли;
+КонецПроцедуры
