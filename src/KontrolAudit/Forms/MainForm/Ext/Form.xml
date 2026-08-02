@@ -109,7 +109,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Максимум карточек для проверки</v8:content>
+							<v8:content>Максимум карточек</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="МаксимумКарточекКонтекстноеМеню" id="21"/>
@@ -135,7 +135,7 @@
 							<v8:content>Критичность</v8:content>
 						</v8:item>
 					</Title>
-					<ChoiceButton>true</ChoiceButton>
+					<DropListButton>true</DropListButton>
 					<ContextMenu name="ФильтрКритичностьКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ФильтрКритичностьРасширеннаяПодсказка" id="27"/>
 					<Events>
@@ -150,6 +150,7 @@
 							<v8:content>Код проблемы</v8:content>
 						</v8:item>
 					</Title>
+					<DropListButton>true</DropListButton>
 					<ContextMenu name="ФильтрКодПроблемыКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ФильтрКодПроблемыРасширеннаяПодсказка" id="30"/>
 					<Events>
