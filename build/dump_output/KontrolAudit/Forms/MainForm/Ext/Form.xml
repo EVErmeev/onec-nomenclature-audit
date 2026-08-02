@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Контроль заполнения номенклатуры</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<ReportFormType>Main</ReportFormType>
+	<AutoShowState>Auto</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Сформировать" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сформировать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сформировать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="СформироватьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="СброситьФильтры" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СброситьФильтры</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сбросить фильтры</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="СброситьФильтрыРасширеннаяПодсказка" id="4"/>
+			</Button>
+			<Button name="ЭкспортироватьCSV" id="5">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЭкспортироватьCSV</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>CSV</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЭкспортироватьCSVРасширеннаяПодсказка" id="6"/>
+			</Button>
+			<Button name="ЭкспортироватьXLSX" id="7">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЭкспортироватьXLSX</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Excel</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЭкспортироватьXLSXРасширеннаяПодсказка" id="8"/>
+			</Button>
+			<Button name="Закрыть" id="9">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="10"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПараметры" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="12"/>
+			<ChildItems>
+				<CheckBoxField name="УчитыватьПомеченныеНаУдаление" id="13">
+					<DataPath>УчитыватьПомеченныеНаУдаление</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учитывать помеченные на удаление</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчитыватьПомеченныеНаУдалениеКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="УчитыватьПомеченныеНаУдалениеРасширеннаяПодсказка" id="15"/>
+				</CheckBoxField>
+				<CheckBoxField name="УчитыватьГруппы" id="16">
+					<DataPath>УчитыватьГруппы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учитывать группы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчитыватьГруппыКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="УчитыватьГруппыРасширеннаяПодсказка" id="18"/>
+				</CheckBoxField>
+				<CheckBoxField name="ТолькоСПроблемами" id="19">
+					<DataPath>ТолькоСПроблемами</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только с проблемами</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТолькоСПроблемамиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ТолькоСПроблемамиРасширеннаяПодсказка" id="21"/>
+				</CheckBoxField>
+				<InputField name="МаксимумКарточек" id="22">
+					<DataPath>МаксимумКарточек</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Максимум карточек</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="МаксимумКарточекКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="МаксимумКарточекРасширеннаяПодсказка" id="24"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФильтры" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтры</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ГруппаФильтрыРасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="ФильтрКритичность" id="27">
+					<DataPath>ФильтрКритичность</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Критичность</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ФильтрКритичностьКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ФильтрКритичностьРасширеннаяПодсказка" id="29"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+						<Event name="StartChoice">ФильтрКритичностьНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФильтрКодПроблемы" id="30">
+					<DataPath>ФильтрКодПроблемы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код проблемы</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ФильтрКодПроблемыКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ФильтрКодПроблемыРасширеннаяПодсказка" id="32"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+						<Event name="StartChoice">ЗаполнитьКодыНаСервере</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФильтрПроблема" id="33">
+					<DataPath>ФильтрПроблема</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ФильтрПроблемаКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="ФильтрПроблемаРасширеннаяПодсказка" id="35"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФильтрГруппа" id="36">
+					<DataPath>ФильтрГруппа</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ФильтрГруппаКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ФильтрГруппаРасширеннаяПодсказка" id="38"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="СтатусФормирования" id="39">
+			<DataPath>СтатусФормирования</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="СтатусФормированияКонтекстноеМеню" id="40"/>
+			<ExtendedTooltip name="СтатусФормированияРасширеннаяПодсказка" id="41"/>
+		</InputField>
+		<Table name="Результат" id="42">
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Height>10</Height>
+			<DataPath>Результат</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РезультатКонтекстноеМеню" id="43"/>
+			<AutoCommandBar name="РезультатКоманднаяПанель" id="44">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="45"/>
+			<SearchStringAddition name="РезультатСтрокаПоиска" id="46">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатСтрокаПоискаКонтекстноеМеню" id="47"/>
+				<ExtendedTooltip name="РезультатСтрокаПоискаРасширеннаяПодсказка" id="48"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РезультатСостояниеПросмотра" id="49">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатСостояниеПросмотраКонтекстноеМеню" id="50"/>
+				<ExtendedTooltip name="РезультатСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РезультатУправлениеПоиском" id="52">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатУправлениеПоискомКонтекстноеМеню" id="53"/>
+				<ExtendedTooltip name="РезультатУправлениеПоискомРасширеннаяПодсказка" id="54"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="РезКод" id="55">
+					<DataPath>Результат.Код</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезКодКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="РезКодРасширеннаяПодсказка" id="57"/>
+				</InputField>
+				<InputField name="РезНаименование" id="58">
+					<DataPath>Результат.Наименование</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезНаименованиеКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="РезНаименованиеРасширеннаяПодсказка" id="60"/>
+				</InputField>
+				<InputField name="РезКодПроблемы" id="61">
+					<DataPath>Результат.КодПроблемы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезКодПроблемыКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="РезКодПроблемыРасширеннаяПодсказка" id="63"/>
+				</InputField>
+				<InputField name="РезПроблема" id="64">
+					<DataPath>Результат.Проблема</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезПроблемаКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="РезПроблемаРасширеннаяПодсказка" id="66"/>
+				</InputField>
+				<InputField name="РезКритичность" id="67">
+					<DataPath>Результат.Критичность</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Критичность</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезКритичностьКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="РезКритичностьРасширеннаяПодсказка" id="69"/>
+				</InputField>
+				<InputField name="РезРекомендация" id="70">
+					<DataPath>Результат.Рекомендация</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рекомендация</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезРекомендацияКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="РезРекомендацияРасширеннаяПодсказка" id="72"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="Сводка" id="73">
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Height>6</Height>
+			<DataPath>Сводка</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СводкаКонтекстноеМеню" id="74"/>
+			<AutoCommandBar name="СводкаКоманднаяПанель" id="75">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СводкаРасширеннаяПодсказка" id="76"/>
+			<SearchStringAddition name="СводкаСтрокаПоиска" id="77">
+				<AdditionSource>
+					<Item>Сводка</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СводкаСтрокаПоискаКонтекстноеМеню" id="78"/>
+				<ExtendedTooltip name="СводкаСтрокаПоискаРасширеннаяПодсказка" id="79"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СводкаСостояниеПросмотра" id="80">
+				<AdditionSource>
+					<Item>Сводка</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СводкаСостояниеПросмотраКонтекстноеМеню" id="81"/>
+				<ExtendedTooltip name="СводкаСостояниеПросмотраРасширеннаяПодсказка" id="82"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СводкаУправлениеПоиском" id="83">
+				<AdditionSource>
+					<Item>Сводка</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СводкаУправлениеПоискомКонтекстноеМеню" id="84"/>
+				<ExtendedTooltip name="СводкаУправлениеПоискомРасширеннаяПодсказка" id="85"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="СвКод" id="86">
+					<DataPath>Сводка.КодПроблемы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвКодКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="СвКодРасширеннаяПодсказка" id="88"/>
+				</InputField>
+				<InputField name="СвПроблема" id="89">
+					<DataPath>Сводка.Проблема</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвПроблемаКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="СвПроблемаРасширеннаяПодсказка" id="91"/>
+				</InputField>
+				<InputField name="СвКритичность" id="92">
+					<DataPath>Сводка.Критичность</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Критичность</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвКритичностьКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="СвКритичностьРасширеннаяПодсказка" id="94"/>
+				</InputField>
+				<InputField name="СвКарточек" id="95">
+					<DataPath>Сводка.Карточек</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карточек</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвКарточекКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="СвКарточекРасширеннаяПодсказка" id="97"/>
+				</InputField>
+				<InputField name="СвПроблем" id="98">
+					<DataPath>Сводка.Проблем</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблем</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвПроблемКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="СвПроблемРасширеннаяПодсказка" id="100"/>
+				</InputField>
+				<InputField name="СвДоля" id="101">
+					<DataPath>Сводка.Доля</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доля, %</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СвДоляКонтекстноеМеню" id="102"/>
+					<ExtendedTooltip name="СвДоляРасширеннаяПодсказка" id="103"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаИтоги" id="104">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоги</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="105"/>
+			<ChildItems>
+				<InputField name="ПровереноКарточек" id="106">
+					<DataPath>ПровереноКарточек</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проверено</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПровереноКарточекКонтекстноеМеню" id="107"/>
+					<ExtendedTooltip name="ПровереноКарточекРасширеннаяПодсказка" id="108"/>
+				</InputField>
+				<InputField name="КарточекСПроблемами" id="109">
+					<DataPath>КарточекСПроблемами</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>С проблемами</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КарточекСПроблемамиКонтекстноеМеню" id="110"/>
+					<ExtendedTooltip name="КарточекСПроблемамиРасширеннаяПодсказка" id="111"/>
+				</InputField>
+				<InputField name="НайденоПроблем" id="112">
+					<DataPath>НайденоПроблем</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблем</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НайденоПроблемКонтекстноеМеню" id="113"/>
+					<ExtendedTooltip name="НайденоПроблемРасширеннаяПодсказка" id="114"/>
+				</InputField>
+				<InputField name="СтрокПолногоРезультата" id="115">
+					<DataPath>СтрокПолногоРезультата</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего строк</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СтрокПолногоРезультатаКонтекстноеМеню" id="116"/>
+					<ExtendedTooltip name="СтрокПолногоРезультатаРасширеннаяПодсказка" id="117"/>
+				</InputField>
+				<InputField name="СтрокОтображается" id="118">
+					<DataPath>СтрокОтображается</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображается</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СтрокОтображаетсяКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="СтрокОтображаетсяРасширеннаяПодсказка" id="120"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ТехническаяОшибка" id="121">
+			<DataPath>ТехническаяОшибка</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тех. ошибка</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>5</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ТехническаяОшибкаКонтекстноеМеню" id="122"/>
+			<ExtendedTooltip name="ТехническаяОшибкаРасширеннаяПодсказка" id="123"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="124">
+			<Type>
+				<v8:Type>cfg:ExternalReportObject.KontrolAudit</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="УчитыватьПомеченныеНаУдаление" id="125">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать помеченные на удаление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьГруппы" id="126">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТолькоСПроблемами" id="127">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только с проблемами</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МаксимумКарточек" id="128">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимум карточек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>6</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Результат" id="129">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ссылка" id="130">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Код" id="131">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>11</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="132">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Родитель" id="133">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КодПроблемы" id="134">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="135">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Критичность" id="136">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Вес" id="137">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроверяемыйРеквизит" id="138">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТекущееЗначение" id="139">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Рекомендация" id="140">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПолныйРезультат" id="141">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полный результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ссылка" id="142">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Код" id="143">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>11</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="144">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Родитель" id="145">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КодПроблемы" id="146">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="147">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Критичность" id="148">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Вес" id="149">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроверяемыйРеквизит" id="150">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТекущееЗначение" id="151">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Рекомендация" id="152">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Сводка" id="153">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сводка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="КодПроблемы" id="154">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="155">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Критичность" id="156">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Карточек" id="157">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проблем" id="158">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Доля" id="159">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>1</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ФильтрКритичность" id="160">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр критичность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФильтрКодПроблемы" id="161">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр код проблемы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФильтрПроблема" id="162">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр проблема</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФильтрГруппа" id="163">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр группа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПровереноКарточек" id="164">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверено карточек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КарточекСПроблемами" id="165">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карточек с проблемами</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НайденоПроблем" id="166">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найдено проблем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокПолногоРезультата" id="167">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строк полного результата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокОтображается" id="168">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строк отображается</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтатусФормирования" id="169">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус формирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТехническаяОшибка" id="170">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Техническая ошибка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьОшибка" id="171">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть ошибка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сформировать" id="172">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Сформировать</Action>
+		</Command>
+		<Command name="СброситьФильтры" id="173">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сбросить фильтры</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СброситьФильтры</Action>
+		</Command>
+		<Command name="ЭкспортироватьCSV" id="174">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>CSV</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ЭкспортироватьCSV</Action>
+		</Command>
+		<Command name="ЭкспортироватьXLSX" id="175">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Excel</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ЭкспортироватьXLSX</Action>
+		</Command>
+	</Commands>
+</Form>

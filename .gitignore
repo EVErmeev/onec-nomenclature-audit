@@ -31,3 +31,6 @@ temp/
 
 # Logs with local secrets
 logs/private/
+
+# PR description templates (local)
+build/pr-body.md
