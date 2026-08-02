@@ -21,18 +21,30 @@ New-Item -ItemType Directory -Force -Path $LogsDir | Out-Null
 
 $LogFile = Join-Path $LogsDir "build.log"
 $ErfPath = Join-Path $DistDir "КонтрольЗаполненияНоменклатуры.erf"
+$EncodingValidator = Join-Path $BuildDir "validate-bsl-encoding.py"
+
+# Remove old artifacts
+Write-Host "[0] Cleaning old artifacts..."
+Remove-Item $ErfPath -Force -ErrorAction SilentlyContinue
+Remove-Item "$ErfPath.sha256" -Force -ErrorAction SilentlyContinue
+if (Test-Path $ErfPath) { Write-Host "ERROR: Failed to remove old ERF" -ForegroundColor Red; exit 1 }
 
 Remove-Item $LogFile -ErrorAction SilentlyContinue
 
 Write-Host "=== External Report Build ===" -ForegroundColor Cyan
 
-# Check sources first
-Write-Host "[1] Checking sources..."
-$RootXml = Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры.xml"
+# BSL encoding validation
+Write-Host "[1] Validating BSL encoding..."
+python $EncodingValidator
+if ($LASTEXITCODE -ne 0) { Write-Host "ERROR: BSL encoding validation failed" -ForegroundColor Red; exit 1 }
+
+# Check sources
+Write-Host "[2] Checking sources..."
+$RootXml = Join-Path $SrcDir "KontrolAudit.xml"
 if (-not (Test-Path $RootXml)) { Write-Host "ERROR: $RootXml not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Ext\ObjectModule.bsl"))) { Write-Host "ERROR: ObjectModule.bsl not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Forms\MainForm\Ext\Form.xml"))) { Write-Host "ERROR: Form.xml not found" -ForegroundColor Red; exit 1 }
-if (-not (Test-Path (Join-Path $SrcDir "КонтрольЗаполненияНоменклатуры\Forms\MainForm\Ext\Form\Module.bsl"))) { Write-Host "ERROR: Form module not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Ext\ObjectModule.bsl"))) { Write-Host "ERROR: ObjectModule.bsl not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Forms\MainForm\Ext\Form.xml"))) { Write-Host "ERROR: Form.xml not found" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path (Join-Path $SrcDir "KontrolAudit\Forms\MainForm\Ext\Form\Module.bsl"))) { Write-Host "ERROR: Form module not found" -ForegroundColor Red; exit 1 }
 Write-Host "  OK: all source files present"
 
 # Try Configurator first
@@ -57,7 +69,7 @@ $OneCPass = if ($env:ONEC_PASSWORD) { $env:ONEC_PASSWORD } else { "" }
 
 $configuratorWorked = $false
 if ((Test-Path $OneCExe) -and (Test-Path $IbPath)) {
-    Write-Host "[2] Trying Configurator: $OneCExe"
+    Write-Host "[3] Configurator: $OneCExe"
     Write-Host "  Base: $IbPath, User: $OneCUser"
     
     $passArgs = if ($OneCPass) { @("/P", $OneCPass) } else { @() }
@@ -66,10 +78,12 @@ if ((Test-Path $OneCExe) -and (Test-Path $IbPath)) {
         "/Out", $LogFile
     )
     
+    $buildStartedAt = Get-Date
+    
     $proc = Start-Process -FilePath $OneCExe -ArgumentList $buildArgs -NoNewWindow -Wait -PassThru
     Write-Host "  Exit code: $($proc.ExitCode)"
     
-    if ((Test-Path $ErfPath) -and ((Get-Item $ErfPath).Length -gt 0)) {
+    if ($proc.ExitCode -eq 0 -and (Test-Path $ErfPath) -and ((Get-Item $ErfPath).Length -gt 0) -and ((Get-Item $ErfPath).LastWriteTimeUtc -ge $buildStartedAt.ToUniversalTime())) {
         $configuratorWorked = $true
         Write-Host "  OK: .erf built by Configurator" -ForegroundColor Green
     } else {

@@ -1,8 +1,5 @@
 ﻿File: КонтрольЗаполненияНоменклатуры.erf
-SHA256: 1593D9248A0A061910D8A70EA9E7817174111D27B184C47ECAEEBC0C28474482
-Build date: 2026-08-01 23:12:28
-Size: 11797 bytes
+SHA256: 69809782D5F03D87CBE215867B6A35EFA9AF9FD0D4A9F7C62499EF4D0B236F80
+Size: 15284
 Platform: 8.3.27.1559
-Method: Configurator (/LoadExternalDataProcessorOrReportFromFiles)
-Base: Temporary stub database
-Internal name: KontrolAudit
+Internal: KontrolAudit
