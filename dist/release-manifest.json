@@ -1,6 +1,10 @@
 ﻿{
   "internalName": "KontrolAudit",
-  "sha256": "6E2A3E4851F4199E78E57F78A952FD24C810403720F7BB826D10833D6AC6DF63",
-  "sizeBytes": 14341,
-  "defaultForm": "ExternalReport.KontrolAudit.Form.MainForm"
+  "sourceCommit": "TBD",
+  "sha256": "301B6E503B6D680D5C1048751155C009C556F97B00AA8986E60CE3A2180E42F2",
+  "sizeBytes": 15402,
+  "gitBlob": "539839a913dd0858dc706851c7954eb4e7618afd",
+  "defaultForm": "ExternalReport.KontrolAudit.Form.MainForm",
+  "runtimeStatus": "NOT_TESTED",
+  "releaseVerification": "PASSED"
 }
