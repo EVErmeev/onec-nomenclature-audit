@@ -135,10 +135,11 @@
 							<v8:content>Критичность</v8:content>
 						</v8:item>
 					</Title>
-					<DropListButton>true</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
 					<ContextMenu name="ФильтрКритичностьКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ФильтрКритичностьРасширеннаяПодсказка" id="27"/>
 					<Events>
+						<Event name="StartChoice">ФильтрКритичностьНачалоВыбора</Event>
 						<Event name="OnChange">ФильтрПриИзменении</Event>
 					</Events>
 				</InputField>
@@ -150,10 +151,11 @@
 							<v8:content>Код проблемы</v8:content>
 						</v8:item>
 					</Title>
-					<DropListButton>true</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
 					<ContextMenu name="ФильтрКодПроблемыКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ФильтрКодПроблемыРасширеннаяПодсказка" id="30"/>
 					<Events>
+						<Event name="StartChoice">ЗаполнитьКодыНаСервере</Event>
 						<Event name="OnChange">ФильтрПриИзменении</Event>
 					</Events>
 				</InputField>
