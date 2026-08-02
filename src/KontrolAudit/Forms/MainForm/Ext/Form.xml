@@ -109,9 +109,14 @@
 		</InputField>
 		<Table name="Результат" id="22">
 			<DataPath>Результат</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>15</Height>
 			<ContextMenu name="РезультатКонтекстноеМеню" id="23"/>
-			<AutoCommandBar name="РезультатКоманднаяПанель" id="24"/>
+			<AutoCommandBar name="РезультатКоманднаяПанель" id="24">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="25"/>
 			<SearchStringAddition name="РезультатСтрокаПоиска" id="26">
 				<AdditionSource>
