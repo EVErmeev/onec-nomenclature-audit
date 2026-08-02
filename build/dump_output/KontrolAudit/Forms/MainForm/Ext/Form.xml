@@ -112,7 +112,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Максимум карточек для проверки</v8:content>
+							<v8:content>Максимум карточек</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="МаксимумКарточекКонтекстноеМеню" id="21"/>
@@ -143,6 +143,7 @@
 					<ExtendedTooltip name="ФильтрКритичностьРасширеннаяПодсказка" id="27"/>
 					<Events>
 						<Event name="OnChange">ФильтрПриИзменении</Event>
+						<Event name="StartChoice">ФильтрКритичностьНачалоВыбора</Event>
 					</Events>
 				</InputField>
 				<InputField name="ФильтрКодПроблемы" id="28">
@@ -153,15 +154,45 @@
 							<v8:content>Код проблемы</v8:content>
 						</v8:item>
 					</Title>
+					<ChoiceButton>true</ChoiceButton>
 					<ContextMenu name="ФильтрКодПроблемыКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ФильтрКодПроблемыРасширеннаяПодсказка" id="30"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+						<Event name="StartChoice">ЗаполнитьКодыНаСервере</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФильтрПроблема" id="31">
+					<DataPath>ФильтрПроблема</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проблема</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ФильтрПроблемаКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ФильтрПроблемаРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">ФильтрПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ФильтрГруппа" id="34">
+					<DataPath>ФильтрГруппа</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ФильтрГруппаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ФильтрГруппаРасширеннаяПодсказка" id="36"/>
 					<Events>
 						<Event name="OnChange">ФильтрПриИзменении</Event>
 					</Events>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="СтатусФормирования" id="31">
+		<InputField name="СтатусФормирования" id="37">
 			<DataPath>СтатусФормирования</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<Title>
@@ -170,47 +201,47 @@
 					<v8:content>Статус</v8:content>
 				</v8:item>
 			</Title>
-			<ContextMenu name="СтатусФормированияКонтекстноеМеню" id="32"/>
-			<ExtendedTooltip name="СтатусФормированияРасширеннаяПодсказка" id="33"/>
+			<ContextMenu name="СтатусФормированияКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="СтатусФормированияРасширеннаяПодсказка" id="39"/>
 		</InputField>
-		<Table name="Результат" id="34">
+		<Table name="Результат" id="40">
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>10</Height>
 			<DataPath>Результат</DataPath>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="РезультатКонтекстноеМеню" id="35"/>
-			<AutoCommandBar name="РезультатКоманднаяПанель" id="36">
+			<ContextMenu name="РезультатКонтекстноеМеню" id="41"/>
+			<AutoCommandBar name="РезультатКоманднаяПанель" id="42">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
-			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="37"/>
-			<SearchStringAddition name="РезультатСтрокаПоиска" id="38">
+			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="43"/>
+			<SearchStringAddition name="РезультатСтрокаПоиска" id="44">
 				<AdditionSource>
 					<Item>Результат</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="РезультатСтрокаПоискаКонтекстноеМеню" id="39"/>
-				<ExtendedTooltip name="РезультатСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+				<ContextMenu name="РезультатСтрокаПоискаКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="РезультатСтрокаПоискаРасширеннаяПодсказка" id="46"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="РезультатСостояниеПросмотра" id="41">
+			<ViewStatusAddition name="РезультатСостояниеПросмотра" id="47">
 				<AdditionSource>
 					<Item>Результат</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="РезультатСостояниеПросмотраКонтекстноеМеню" id="42"/>
-				<ExtendedTooltip name="РезультатСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+				<ContextMenu name="РезультатСостояниеПросмотраКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="РезультатСостояниеПросмотраРасширеннаяПодсказка" id="49"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="РезультатУправлениеПоиском" id="44">
+			<SearchControlAddition name="РезультатУправлениеПоиском" id="50">
 				<AdditionSource>
 					<Item>Результат</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="РезультатУправлениеПоискомКонтекстноеМеню" id="45"/>
-				<ExtendedTooltip name="РезультатУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+				<ContextMenu name="РезультатУправлениеПоискомКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="РезультатУправлениеПоискомРасширеннаяПодсказка" id="52"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<InputField name="РезКод" id="47">
+				<InputField name="РезКод" id="53">
 					<DataPath>Результат.Код</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -219,10 +250,10 @@
 							<v8:content>Код</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезКодКонтекстноеМеню" id="48"/>
-					<ExtendedTooltip name="РезКодРасширеннаяПодсказка" id="49"/>
+					<ContextMenu name="РезКодКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="РезКодРасширеннаяПодсказка" id="55"/>
 				</InputField>
-				<InputField name="РезНаименование" id="50">
+				<InputField name="РезНаименование" id="56">
 					<DataPath>Результат.Наименование</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -231,10 +262,10 @@
 							<v8:content>Наименование</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезНаименованиеКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="РезНаименованиеРасширеннаяПодсказка" id="52"/>
+					<ContextMenu name="РезНаименованиеКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="РезНаименованиеРасширеннаяПодсказка" id="58"/>
 				</InputField>
-				<InputField name="РезКодПроблемы" id="53">
+				<InputField name="РезКодПроблемы" id="59">
 					<DataPath>Результат.КодПроблемы</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -243,10 +274,10 @@
 							<v8:content>Код проблемы</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезКодПроблемыКонтекстноеМеню" id="54"/>
-					<ExtendedTooltip name="РезКодПроблемыРасширеннаяПодсказка" id="55"/>
+					<ContextMenu name="РезКодПроблемыКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="РезКодПроблемыРасширеннаяПодсказка" id="61"/>
 				</InputField>
-				<InputField name="РезПроблема" id="56">
+				<InputField name="РезПроблема" id="62">
 					<DataPath>Результат.Проблема</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -255,10 +286,10 @@
 							<v8:content>Проблема</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезПроблемаКонтекстноеМеню" id="57"/>
-					<ExtendedTooltip name="РезПроблемаРасширеннаяПодсказка" id="58"/>
+					<ContextMenu name="РезПроблемаКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="РезПроблемаРасширеннаяПодсказка" id="64"/>
 				</InputField>
-				<InputField name="РезКритичность" id="59">
+				<InputField name="РезКритичность" id="65">
 					<DataPath>Результат.Критичность</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -267,10 +298,10 @@
 							<v8:content>Критичность</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезКритичностьКонтекстноеМеню" id="60"/>
-					<ExtendedTooltip name="РезКритичностьРасширеннаяПодсказка" id="61"/>
+					<ContextMenu name="РезКритичностьКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="РезКритичностьРасширеннаяПодсказка" id="67"/>
 				</InputField>
-				<InputField name="РезРекомендация" id="62">
+				<InputField name="РезРекомендация" id="68">
 					<DataPath>Результат.Рекомендация</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -279,49 +310,49 @@
 							<v8:content>Рекомендация</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="РезРекомендацияКонтекстноеМеню" id="63"/>
-					<ExtendedTooltip name="РезРекомендацияРасширеннаяПодсказка" id="64"/>
+					<ContextMenu name="РезРекомендацияКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="РезРекомендацияРасширеннаяПодсказка" id="70"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<Table name="Сводка" id="65">
+		<Table name="Сводка" id="71">
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>6</Height>
 			<DataPath>Сводка</DataPath>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="СводкаКонтекстноеМеню" id="66"/>
-			<AutoCommandBar name="СводкаКоманднаяПанель" id="67">
+			<ContextMenu name="СводкаКонтекстноеМеню" id="72"/>
+			<AutoCommandBar name="СводкаКоманднаяПанель" id="73">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
-			<ExtendedTooltip name="СводкаРасширеннаяПодсказка" id="68"/>
-			<SearchStringAddition name="СводкаСтрокаПоиска" id="69">
+			<ExtendedTooltip name="СводкаРасширеннаяПодсказка" id="74"/>
+			<SearchStringAddition name="СводкаСтрокаПоиска" id="75">
 				<AdditionSource>
 					<Item>Сводка</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СводкаСтрокаПоискаКонтекстноеМеню" id="70"/>
-				<ExtendedTooltip name="СводкаСтрокаПоискаРасширеннаяПодсказка" id="71"/>
+				<ContextMenu name="СводкаСтрокаПоискаКонтекстноеМеню" id="76"/>
+				<ExtendedTooltip name="СводкаСтрокаПоискаРасширеннаяПодсказка" id="77"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СводкаСостояниеПросмотра" id="72">
+			<ViewStatusAddition name="СводкаСостояниеПросмотра" id="78">
 				<AdditionSource>
 					<Item>Сводка</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СводкаСостояниеПросмотраКонтекстноеМеню" id="73"/>
-				<ExtendedTooltip name="СводкаСостояниеПросмотраРасширеннаяПодсказка" id="74"/>
+				<ContextMenu name="СводкаСостояниеПросмотраКонтекстноеМеню" id="79"/>
+				<ExtendedTooltip name="СводкаСостояниеПросмотраРасширеннаяПодсказка" id="80"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СводкаУправлениеПоиском" id="75">
+			<SearchControlAddition name="СводкаУправлениеПоиском" id="81">
 				<AdditionSource>
 					<Item>Сводка</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СводкаУправлениеПоискомКонтекстноеМеню" id="76"/>
-				<ExtendedTooltip name="СводкаУправлениеПоискомРасширеннаяПодсказка" id="77"/>
+				<ContextMenu name="СводкаУправлениеПоискомКонтекстноеМеню" id="82"/>
+				<ExtendedTooltip name="СводкаУправлениеПоискомРасширеннаяПодсказка" id="83"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<InputField name="СвКод" id="78">
+				<InputField name="СвКод" id="84">
 					<DataPath>Сводка.КодПроблемы</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -330,10 +361,10 @@
 							<v8:content>Код</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвКодКонтекстноеМеню" id="79"/>
-					<ExtendedTooltip name="СвКодРасширеннаяПодсказка" id="80"/>
+					<ContextMenu name="СвКодКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="СвКодРасширеннаяПодсказка" id="86"/>
 				</InputField>
-				<InputField name="СвПроблема" id="81">
+				<InputField name="СвПроблема" id="87">
 					<DataPath>Сводка.Проблема</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -342,10 +373,10 @@
 							<v8:content>Проблема</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвПроблемаКонтекстноеМеню" id="82"/>
-					<ExtendedTooltip name="СвПроблемаРасширеннаяПодсказка" id="83"/>
+					<ContextMenu name="СвПроблемаКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="СвПроблемаРасширеннаяПодсказка" id="89"/>
 				</InputField>
-				<InputField name="СвКритичность" id="84">
+				<InputField name="СвКритичность" id="90">
 					<DataPath>Сводка.Критичность</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -354,10 +385,10 @@
 							<v8:content>Критичность</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвКритичностьКонтекстноеМеню" id="85"/>
-					<ExtendedTooltip name="СвКритичностьРасширеннаяПодсказка" id="86"/>
+					<ContextMenu name="СвКритичностьКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="СвКритичностьРасширеннаяПодсказка" id="92"/>
 				</InputField>
-				<InputField name="СвКарточек" id="87">
+				<InputField name="СвКарточек" id="93">
 					<DataPath>Сводка.Карточек</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -366,10 +397,10 @@
 							<v8:content>Карточек</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвКарточекКонтекстноеМеню" id="88"/>
-					<ExtendedTooltip name="СвКарточекРасширеннаяПодсказка" id="89"/>
+					<ContextMenu name="СвКарточекКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="СвКарточекРасширеннаяПодсказка" id="95"/>
 				</InputField>
-				<InputField name="СвПроблем" id="90">
+				<InputField name="СвПроблем" id="96">
 					<DataPath>Сводка.Проблем</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -378,10 +409,10 @@
 							<v8:content>Проблем</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвПроблемКонтекстноеМеню" id="91"/>
-					<ExtendedTooltip name="СвПроблемРасширеннаяПодсказка" id="92"/>
+					<ContextMenu name="СвПроблемКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="СвПроблемРасширеннаяПодсказка" id="98"/>
 				</InputField>
-				<InputField name="СвДоля" id="93">
+				<InputField name="СвДоля" id="99">
 					<DataPath>Сводка.Доля</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -390,12 +421,12 @@
 							<v8:content>Доля, %</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СвДоляКонтекстноеМеню" id="94"/>
-					<ExtendedTooltip name="СвДоляРасширеннаяПодсказка" id="95"/>
+					<ContextMenu name="СвДоляКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="СвДоляРасширеннаяПодсказка" id="101"/>
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаИтоги" id="96">
+		<UsualGroup name="ГруппаИтоги" id="102">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -403,9 +434,9 @@
 				</v8:item>
 			</Title>
 			<Group>Horizontal</Group>
-			<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="97"/>
+			<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="103"/>
 			<ChildItems>
-				<InputField name="ПровереноКарточек" id="98">
+				<InputField name="ПровереноКарточек" id="104">
 					<DataPath>ПровереноКарточек</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -414,10 +445,10 @@
 							<v8:content>Проверено</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ПровереноКарточекКонтекстноеМеню" id="99"/>
-					<ExtendedTooltip name="ПровереноКарточекРасширеннаяПодсказка" id="100"/>
+					<ContextMenu name="ПровереноКарточекКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="ПровереноКарточекРасширеннаяПодсказка" id="106"/>
 				</InputField>
-				<InputField name="КарточекСПроблемами" id="101">
+				<InputField name="КарточекСПроблемами" id="107">
 					<DataPath>КарточекСПроблемами</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -426,10 +457,10 @@
 							<v8:content>С проблемами</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="КарточекСПроблемамиКонтекстноеМеню" id="102"/>
-					<ExtendedTooltip name="КарточекСПроблемамиРасширеннаяПодсказка" id="103"/>
+					<ContextMenu name="КарточекСПроблемамиКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="КарточекСПроблемамиРасширеннаяПодсказка" id="109"/>
 				</InputField>
-				<InputField name="НайденоПроблем" id="104">
+				<InputField name="НайденоПроблем" id="110">
 					<DataPath>НайденоПроблем</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -438,10 +469,10 @@
 							<v8:content>Проблем</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="НайденоПроблемКонтекстноеМеню" id="105"/>
-					<ExtendedTooltip name="НайденоПроблемРасширеннаяПодсказка" id="106"/>
+					<ContextMenu name="НайденоПроблемКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="НайденоПроблемРасширеннаяПодсказка" id="112"/>
 				</InputField>
-				<InputField name="СтрокРезультата" id="107">
+				<InputField name="СтрокРезультата" id="113">
 					<DataPath>СтрокРезультата</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -450,12 +481,12 @@
 							<v8:content>Строк</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="СтрокРезультатаКонтекстноеМеню" id="108"/>
-					<ExtendedTooltip name="СтрокРезультатаРасширеннаяПодсказка" id="109"/>
+					<ContextMenu name="СтрокРезультатаКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="СтрокРезультатаРасширеннаяПодсказка" id="115"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="ТехническаяОшибка" id="110">
+		<InputField name="ТехническаяОшибка" id="116">
 			<DataPath>ТехническаяОшибка</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<Title>
@@ -467,18 +498,18 @@
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>5</Height>
 			<MultiLine>true</MultiLine>
-			<ContextMenu name="ТехническаяОшибкаКонтекстноеМеню" id="111"/>
-			<ExtendedTooltip name="ТехническаяОшибкаРасширеннаяПодсказка" id="112"/>
+			<ContextMenu name="ТехническаяОшибкаКонтекстноеМеню" id="117"/>
+			<ExtendedTooltip name="ТехническаяОшибкаРасширеннаяПодсказка" id="118"/>
 		</InputField>
 	</ChildItems>
 	<Attributes>
-		<Attribute name="Объект" id="113">
+		<Attribute name="Объект" id="119">
 			<Type>
 				<v8:Type>cfg:ExternalReportObject.KontrolAudit</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
 		</Attribute>
-		<Attribute name="УчитыватьПомеченныеНаУдаление" id="114">
+		<Attribute name="УчитыватьПомеченныеНаУдаление" id="120">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -489,7 +520,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="УчитыватьГруппы" id="115">
+		<Attribute name="УчитыватьГруппы" id="121">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -500,7 +531,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ТолькоСПроблемами" id="116">
+		<Attribute name="ТолькоСПроблемами" id="122">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -511,7 +542,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="МаксимумКарточек" id="117">
+		<Attribute name="МаксимумКарточек" id="123">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -527,7 +558,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="Результат" id="118">
+		<Attribute name="Результат" id="124">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -538,12 +569,12 @@
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="Ссылка" id="119">
+				<Column name="Ссылка" id="125">
 					<Type>
 						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 					</Type>
 				</Column>
-				<Column name="Код" id="120">
+				<Column name="Код" id="126">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -552,7 +583,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Наименование" id="121">
+				<Column name="Наименование" id="127">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -561,12 +592,12 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Родитель" id="122">
+				<Column name="Родитель" id="128">
 					<Type>
 						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 					</Type>
 				</Column>
-				<Column name="КодПроблемы" id="123">
+				<Column name="КодПроблемы" id="129">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -575,7 +606,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Проблема" id="124">
+				<Column name="Проблема" id="130">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -584,7 +615,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Критичность" id="125">
+				<Column name="Критичность" id="131">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -593,7 +624,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Вес" id="126">
+				<Column name="Вес" id="132">
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
@@ -603,7 +634,7 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="ПроверяемыйРеквизит" id="127">
+				<Column name="ПроверяемыйРеквизит" id="133">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -612,7 +643,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="ТекущееЗначение" id="128">
+				<Column name="ТекущееЗначение" id="134">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -621,7 +652,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Рекомендация" id="129">
+				<Column name="Рекомендация" id="135">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -632,7 +663,112 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="Сводка" id="130">
+		<Attribute name="ПолныйРезультат" id="136">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полный результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ссылка" id="137">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Код" id="138">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>11</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="139">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Родитель" id="140">
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КодПроблемы" id="141">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проблема" id="142">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Критичность" id="143">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Вес" id="144">
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроверяемыйРеквизит" id="145">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТекущееЗначение" id="146">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Рекомендация" id="147">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Сводка" id="148">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -643,7 +779,7 @@
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<Columns>
-				<Column name="КодПроблемы" id="131">
+				<Column name="КодПроблемы" id="149">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -652,7 +788,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Проблема" id="132">
+				<Column name="Проблема" id="150">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -661,7 +797,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Критичность" id="133">
+				<Column name="Критичность" id="151">
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -670,7 +806,7 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Карточек" id="134">
+				<Column name="Карточек" id="152">
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
@@ -680,7 +816,7 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="Проблем" id="135">
+				<Column name="Проблем" id="153">
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
@@ -690,7 +826,7 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="Доля" id="136">
+				<Column name="Доля" id="154">
 					<Type>
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
@@ -702,7 +838,7 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="ФильтрКритичность" id="137">
+		<Attribute name="ФильтрКритичность" id="155">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -717,7 +853,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ФильтрКодПроблемы" id="138">
+		<Attribute name="ФильтрКодПроблемы" id="156">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -732,7 +868,37 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ПровереноКарточек" id="139">
+		<Attribute name="ФильтрПроблема" id="157">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр проблема</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФильтрГруппа" id="158">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр группа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПровереноКарточек" id="159">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -748,7 +914,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="КарточекСПроблемами" id="140">
+		<Attribute name="КарточекСПроблемами" id="160">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -764,7 +930,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="НайденоПроблем" id="141">
+		<Attribute name="НайденоПроблем" id="161">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -780,7 +946,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="СтрокРезультата" id="142">
+		<Attribute name="СтрокРезультата" id="162">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -796,7 +962,7 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="СтатусФормирования" id="143">
+		<Attribute name="СтатусФормирования" id="163">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -811,7 +977,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ТехническаяОшибка" id="144">
+		<Attribute name="ТехническаяОшибка" id="164">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -826,7 +992,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ЕстьОшибка" id="145">
+		<Attribute name="ЕстьОшибка" id="165">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -839,7 +1005,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Сформировать" id="146">
+		<Command name="Сформировать" id="166">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -848,7 +1014,7 @@
 			</Title>
 			<Action>Сформировать</Action>
 		</Command>
-		<Command name="СброситьФильтры" id="147">
+		<Command name="СброситьФильтры" id="167">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -857,7 +1023,7 @@
 			</Title>
 			<Action>СброситьФильтры</Action>
 		</Command>
-		<Command name="ЭкспортироватьCSV" id="148">
+		<Command name="ЭкспортироватьCSV" id="168">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
